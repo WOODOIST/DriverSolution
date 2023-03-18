@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.MainPage"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             Background="#112B47">
+
+    <StackLayout>
+
+        <StackLayout >
+            <Label TextColor="White" HorizontalOptions="Center"  FontSize="50" Text="Список водителей" VerticalOptions="Center" />
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Поиск по:" HorizontalOptions="Center" VerticalOptions="Center" FontSize="25"
+                       TextColor="White"></Label>
+                <Picker WidthRequest="200"     TitleColor="Orange" TextColor="White"
+                        x:Name="pckSortBy" SelectedIndexChanged="pckSortBy_SelectedIndexChanged" >
+                    <Picker.Items>
+                        <x:String>Фамилия</x:String>
+                        <x:String>Имя</x:String>
+                        <x:String>Серия паспорта</x:String>
+                        <x:String>Номер паспорта</x:String>
+
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    
+                    
+                    
+                </Picker>
+                <SearchBar Margin="10"  BackgroundColor="White" TextColor="Black" 
+                           Placeholder="Поиск"  HorizontalOptions="Center" VerticalOptions="Center" 
+                           WidthRequest="300" x:Name="srchBarFindDriver" 
+                        ></SearchBar>
+                
+                <Button x:Name="btnFind" Clicked="btnFind_Clicked" HorizontalOptions="Center" 
+                    VerticalOptions="Center" Text="Найти" WidthRequest="150" TextColor="White"
+                BackgroundColor="LightCoral"
+                BorderColor="Orange"
+                BorderWidth="1.5"
+                CornerRadius="50"></Button>
+                
+                <Button x:Name="btnDeleteFilters" Clicked="btnDeleteFilters_Clicked" HorizontalOptions="Center" 
+                    VerticalOptions="Center" Text="Сбросить фильтры" WidthRequest="150" TextColor="White"
+                BackgroundColor="LightCoral"
+                BorderColor="Orange"
+                BorderWidth="1.5"
+                CornerRadius="50"></Button>
+            </StackLayout>
+            
+            <ListView x:Name="LViewExhibits" ItemSelected="LViewExhibits_ItemSelected" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout  Padding="20">
+                                
+                                
+                                <Image x:Name="ExhibitImage" Source="{Binding Photo}" HeightRequest="250" HorizontalOptions="CenterAndExpand" />
+                                <Label TextColor="White" FontSize="25" Text="{Binding DriverSurname, StringFormat='Фамилия : {0} '}"/>
+                                <Label TextColor="White" FontSize="25" Text="{Binding DriverName, StringFormat='Имя : {0} '}"/>
+                                <Label TextColor="White" FontSize="25" Text="{Binding DriverMiddlename, StringFormat='Отчество : {0} '}"/>
+                                <Label TextColor="White" FontSize="25" Text="{Binding DriverPhone, StringFormat='Телефон: {0} '}"/>
+                                <Label TextColor="White" FontSize="25" Text="{Binding DriverPassSeries, StringFormat='Серия паспорта: {0} '}"/>
+                                <Label TextColor="White" FontSize="25" Text="{Binding DriverPassNumber, StringFormat='Номер паспорта: {0} '}"/>
+                                <Label TextColor="White" FontSize="25" Text="{Binding DriverEmail, StringFormat='Эл.почта: {0} '}"/>
+                                <Label TextColor="White" FontSize="25" Text="{Binding DriverPostCode, StringFormat='Индекс: {0} '}"/>
+                                <Label TextColor="White" FontSize="25" Text="{Binding DriverAddress, StringFormat='Адрес: {0} '}"/>
+                                <Label TextColor="White"  FontSize="25" Text="{Binding DriverJob, StringFormat='Кем работает: {0} '}"/>
+                                <Label TextColor="White"  FontSize="25" Text="{Binding DriverCompany, StringFormat='Название компании: {0} '}"/>
+                                
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        
+    </StackLayout>
+
+    
+</ContentPage>

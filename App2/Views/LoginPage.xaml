@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.Views.LoginPage"
+             BackgroundColor="#112B47">
+    <ContentPage.Content>
+        
+        <StackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            
+            <Image Source="gibdd_logo.png"  HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="180" HeightRequest="180"/>
+            <Label FontSize="26" Text="ГосАвтоИнспекция" HorizontalOptions="Center" TextColor="White"/>
+            <Entry x:Name="tryLogin" Placeholder="Логин" MaxLength="100" TextColor="White" 
+                   PlaceholderColor="Gray"/>
+            <Entry x:Name="tryPassword" Placeholder="Пароль" MaxLength="100" IsPassword="True"
+                   TextColor="White" PlaceholderColor="Gray"/>
+
+            <Button x:Name="BtnLogin"
+                VerticalOptions="Center"
+                    
+                Text="Войти"
+                TextColor="White"
+                BackgroundColor="LightCoral"
+                BorderColor="Orange"
+                BorderWidth="1.5"
+                CornerRadius="50"
+                Clicked="BtnLogin_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
